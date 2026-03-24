@@ -77,5 +77,10 @@ footer{
         max-width: 100%;
     }
 
+    footer{
+        position: static;
+        margin-top: 20px;
+    }
+
 
 }
