@@ -122,24 +122,37 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   wrapProcessSteps();
 
-  /* ── Contact form ── */
-  const form = document.getElementById('contact-form');
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const btn  = form.querySelector('.form-submit');
-      const orig = btn.innerHTML;
-      btn.innerHTML = '✓ &nbsp; Request Sent';
-      btn.style.background = '#3ddc84';
-      btn.style.color = '#000';
-      setTimeout(() => {
-        btn.innerHTML = orig;
-        btn.style.background = '';
-        btn.style.color = '';
-        form.reset();
-      }, 3000);
-    });
-  }
+  /* ── Contact form (mailto version) ── */
+const form = document.getElementById('contact-form');
+if (form) {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const btn  = form.querySelector('.form-submit');
+    const orig = btn.innerHTML;
+
+    const name = encodeURIComponent(document.getElementById('full-name').value);
+    const business = encodeURIComponent(document.getElementById('business-name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const requirements = encodeURIComponent(document.getElementById('requirements').value);
+
+    const subject = encodeURIComponent(`Consultation Request from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nRequirements:\n${requirements}`
+    );
+
+    btn.innerHTML = 'Opening Email…';
+    btn.disabled = true;
+
+    // Open mail client
+    window.location.href = `mailto:info@zyma.co.za?subject=${subject}&body=${body}`;
+
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.disabled = false;
+      form.reset();
+    }, 2000);
+  });
+}
 /* ── Legal page: TOC scroll spy ── */
 const tocLinks = document.querySelectorAll('.toc-link');
 if (tocLinks.length) {
