@@ -1,42 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="images/4.png">
-    <title>Coming Soon</title>
-    <meta name="description" content="Automation and internal systems software for modern businesses.">
-    
-    <meta property="og:title" content="Zyma Systems">
-    <meta property="og:description" content="Automation and internal systems software for modern businesses.">
-    <meta property="og:image" content="https://zyma.co.za/images/5.png">
-    <meta property="og:url" content="https://zyma.co.za/">
-    <meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Zyma Systems">
-    <meta name="twitter:description" content="Automation and internal systems software for modern businesses.">
-    <meta name="twitter:image" content="https://zyma.co.za/images/5.png">
-
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zyma Systems — Precision in Automation</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <img src="images/2.png" alt="Logo" class="logo">
-    <img src="images/Orange Motivational Curved Text Instagram Post.gif" alt="Cominng Soon" class="coming-soon-image">
-    
-</body>
 
-<footer>
-    
-    <p class="follow-us">Follow us on social media:</p>
-    <div class="social-icons">
-        <a href="https://www.instagram.com/zymasystems" target="_blank"><i class="fa fa-instagram"></i></a>
+  <!-- ══ NAV ══ -->
+  <nav class="nav">
+    <a href="index.html" class="nav-logo">Zyma Systems</a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="services.html" >Services</a>
+      <a href="about.html" >About</a>
+      <a href="contact.html" >Contact</a>
     </div>
-        <p>for any queries:</p>
-    <p class="contact-info">Contact us: <a href="mailto:info@zyma.co.za">info@zyma.co.za</a></p>
-    <p class="footer-text">© Zyma Systems 2026 All rights reserved.</p>
-</footer>
+    <a href="contact.html" class="nav-cta">Book a Consultation</a>
+    <button class="nav-hamburger" aria-label="Toggle menu" id="nav-hamburger">
+      <span class="ham-line"></span><span class="ham-line"></span>
+    </button>
+  </nav>
 
+  <div class="mobile-overlay" id="mobile-overlay">
+    <div class="mobile-overlay-bg"></div>
+    <div class="mobile-overlay-content">
+      <nav class="mobile-nav-links">
+        <a href="index.html" class="mob-link active">
+          <span class="mob-num">01</span>
+          <span class="mob-text">Home</span>
+          <span class="mob-arrow">→</span>
+        </a>
+        <a href="services.html" class="mob-link">
+          <span class="mob-num">02</span>
+          <span class="mob-text">Services</span>
+          <span class="mob-arrow">→</span>
+        </a>
+        <a href="about.html" class="mob-link">
+          <span class="mob-num">03</span>
+          <span class="mob-text">About</span>
+          <span class="mob-arrow">→</span>
+        </a>
+
+        <a href="contact.html" class="mob-link">
+          <span class="mob-num">05</span>
+          <span class="mob-text">Contact</span>
+          <span class="mob-arrow">→</span>
+        </a>
+      </nav>
+      <div class="mobile-overlay-footer">
+        <a href="contact.html" class="btn btn-primary mob-cta">Book a Consultation →</a>
+        <div class="status-badge mob-status">All Systems Nominal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero-home">
+    <div class="hero-home-content">
+      <p class="hero-eyebrow reveal">welcome to Zyma Systems</p>
+      <h1 class="display reveal reveal-delay-1">
+        We Build Systems<br>
+        That <span class="accent" id="hero-type">RUN</span><br>
+        Your Business.
+      </h1>
+      <p class="body-text reveal reveal-delay-2" style="margin-bottom:40px;">
+        Automation and internal software designed to eliminate manual work and scale operations.
+      </p>
+      <div class="hero-btns reveal reveal-delay-3">
+        <a href="contact.html" class="btn btn-primary">
+          Book a Free Consultation <span class="btn-arrow">→</span>
+        </a>
+        <a href="services.html" class="btn btn-outline">View Services</a>
+      </div>
+    </div>
+   
+  </section>
+
+  <!-- ══ PAIN POINTS ══ -->
+  <section class="pain-section">
+    <div class="container">
+      <div class="pain-inner">
+        <div class="pain-left reveal">
+          <h2 class="section-title">Human Potential<br><span class="accent">Is Wasted On</span><br>Repetition.</h2>
+          <p style="margin-top:16px;">Traditional companies scale by adding headcount. Zyma companies scale by adding logic.</p>
+        </div>
+        <div class="pain-items reveal reveal-delay-1">
+          <div class="pain-item">
+            <div class="pain-icon">📋</div>
+            <div>
+              <h4>Too Many Manual Processes?</h4>
+              <p>Copy-pasting data across spreadsheets is a failure of infrastructure, not a job description.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">⏳</div>
+            <div>
+              <h4>Wasting Time on Repetitive Tasks?</h4>
+              <p>Your best employees are burning out on tasks that a 21-line script could solve in milliseconds.</p>
+            </div>
+          </div>
+          <div class="pain-item">
+            <div class="pain-icon">🔗</div>
+            <div>
+              <h4>Systems Not Talking to Each Other?</h4>
+              <p>Data silos create friction. We build technologies that turn your software into a unified ecosystem.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SERVICES PREVIEW ══ -->
+  <section class="services-preview">
+    <div class="container">
+      <div class="services-preview-header reveal">
+        <div class="label">The Zyma Solution</div>
+        <h2 class="section-title">Orchestrated Efficiency</h2>
+        <p class="body-text" style="margin:16px auto 0;text-align:center;max-width:480px;">
+          We architect, deploy, and maintain the digital backbone of high-growth companies.
+        </p>
+      </div>
+      <div class="services-grid reveal reveal-delay-1">
+        <div class="service-block" data-num="01">
+          <div class="service-block-icon">⚡</div>
+          <h3>Custom Software</h3>
+          <p>Tailored applications to handle your specific industry requirements without compromising performance.</p>
+          <ul class="service-block-tags">
+            <li>API Integrations</li>
+            <li>Cloud Architecture</li>
+            <li>Legacy Migration</li>
+          </ul>
+        </div>
+        <div class="service-block" data-num="02">
+          <div class="service-block-icon">🔄</div>
+          <h3>Workflow Automation</h3>
+          <p>End-to-end automation of business processes that trigger actions across your entire tech stack autonomously.</p>
+          <ul class="service-block-tags">
+            <li>Multi-platform Sync</li>
+            <li>Robotic Process Automation</li>
+            <li>Event-Driven Logic</li>
+          </ul>
+        </div>
+        <div class="service-block" data-num="03">
+          <div class="service-block-icon">📊</div>
+          <h3>Internal Systems</h3>
+          <p>Proprietary tools for ops, logistics, and management. Give your team the cockpit they deserve.</p>
+          <ul class="service-block-tags">
+            <li>Performance Dashboards</li>
+            <li>Inventory Management</li>
+            <li>Custom CRM Engines</li>
+          </ul>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;" class="reveal reveal-delay-2">
+        <a href="services.html" class="btn btn-outline">Explore All Services <span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESS ══ -->
+  <section class="process-section">
+    <div class="container">
+      <div class="process-header reveal">
+        <div>
+          <div class="label">The Implementation Phase</div>
+          <h2 class="section-title">How We Build</h2>
+        </div>
+        <a href="contact.html" class="btn btn-outline">Start the Process →</a>
+      </div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="process-num">01</div>
+          <h3>Analyze</h3>
+          <p>We map your current manual debt. We identify every friction point, duplicate entry, and lost hour in your current operation.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="process-num">02</div>
+          <h3>Design</h3>
+          <p>We architect a logic-first blueprint. No generic templates — every system is custom-contoured to your business DNA.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="process-num">03</div>
+          <h3>Build</h3>
+          <p>Rapid deployment of robust, scalable code. We integrate into your existing stack and hand over the keys to the machine.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ STATS ══ -->
+  <section style="padding:80px 0;background:var(--dark);border-top:1px solid var(--border);">
+    <div class="container">
+      <div class="grid-3 reveal" style="gap:0;border:1px solid var(--border);">
+        <div style="padding:40px;border-right:1px solid var(--border);text-align:center;">
+          <div class="stat-num" data-target="1" data-suffix="+">0</div>
+          <div class="stat-label">Deployments nationwide</div>
+        </div>
+        <div style="padding:40px;border-right:1px solid var(--border);text-align:center;">
+          <div class="stat-num" data-target="99.96" data-suffix="%">0</div>
+          <div class="stat-label">Uptime Guarantee</div>
+        </div>
+        <div style="padding:40px;text-align:center;">
+          <div class="stat-num" data-target="1200" data-suffix="+">0</div>
+          <div class="stat-label">Human Hours Saved Annually</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <div class="cta-banner reveal">
+    <h2>Stop Wasting Time On Manual Work.</h2>
+    <p>Your competition is already automating. Don't let your operational debt become a terminal illness.</p>
+    <a href="contact.html" class="btn btn-dark" style="background:var(--black);color:var(--white);border:none;">
+      Initialize System Consultation <span class="btn-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Zyma Systems</div>
+          <p class="footer-brand-desc">Redefining operational excellence with tailored automation solutions. Engineered for the future of intelligent industry</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Navigation</div>
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <ul>
+            <li><a href="Privacy.html">Privacy Policy</a></li>
+            <li><a href="Terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Operational Status</div>
+          <div class="status-badge" style="margin-bottom:12px;">All Systems Nominal</div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">© 2026 Zyma Systems. automating the future.</span>
+        <div class="footer-status">All Systems Online</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
