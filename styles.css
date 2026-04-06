@@ -398,6 +398,28 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   animation: pulse 2s infinite;
 }
 
+.fa-twitter {
+  font-size: 20px;
+  color: var(--white-dim);
+  transition: color var(--transition);
+}
+
+.fa-twitter:hover {
+  color: var(--white);
+}
+
+.fa-instagram {
+  font-size: 20px;
+  color: var(--white-dim);
+  transition: color var(--transition);
+}
+
+.fa-instagram:hover {
+  color: var(--white);
+}
+
+
+
 /* ── Number stat ── */
 .stat-num {
   font-family: var(--head);
@@ -1919,6 +1941,14 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
    RESPONSIVE — MOBILE  (≤768px)
    ============================================================ */
 @media (max-width: 768px) {
+
+  .fa-twitter{
+    font-size: 25px;
+  }
+
+  .fa-instagram{
+    font-size: 25px;
+  }
 
   /* ── Nav ── */
   :root { --nav-h: 56px; }
