@@ -130,21 +130,19 @@ if (form) {
     const btn  = form.querySelector('.form-submit');
     const orig = btn.innerHTML;
 
-    const name = encodeURIComponent(document.getElementById('full-name').value);
-    const business = encodeURIComponent(document.getElementById('business-name').value);
-    const email = encodeURIComponent(document.getElementById('email').value);
-    const requirements = encodeURIComponent(document.getElementById('requirements').value);
+    const name = document.getElementById('full-name').value;
+    const business = document.getElementById('business-name').value;
+    const email = document.getElementById('email').value;
+    const requirements = document.getElementById('requirements').value;
 
-    const subject = encodeURIComponent(`Consultation Request from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nRequirements:\n${requirements}`
-    );
+    const subject = `Consultation Request from ${business}`;
+    const body = `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nRequirements:\n${requirements}`;
 
     btn.innerHTML = 'Opening Email…';
     btn.disabled = true;
 
     // Open mail client
-    window.location.href = `mailto:info@zyma.co.za?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:info@zyma.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     setTimeout(() => {
       btn.innerHTML = orig;
@@ -192,7 +190,7 @@ if (tocLinks.length) {
   /* ── Hero typewriter ── */
   const typeTarget = document.getElementById('hero-type');
   if (typeTarget) {
-    const words = ['RUN', 'POWER', 'SCALE', 'DRIVE'];
+    const words = ['RUN', 'POWER', 'SCALE', 'DRIVE','GROW'];
     let wordIdx = 0, charIdx = 0, deleting = false;
     typeTarget.style.borderRight = '2px solid #e8890c';
 
