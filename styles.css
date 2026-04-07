@@ -428,6 +428,16 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   color: var(--white);
 }
 
+.fa-github{
+  font-size: 28px;
+  color: var(--white-dim);
+  transition: color var(--transition);
+}
+
+.fa-github:hover {
+  color: var(--white);
+}
+
 /* ── Number stat ── */
 .stat-num {
   font-family: var(--head);
@@ -1961,6 +1971,11 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   .fa-linkedin{
     font-size: 28px;
   }
+
+  .fa-github{
+    font-size: 28px;
+  }
+
   /* ── Nav ── */
   :root { --nav-h: 56px; }
   .nav { padding: 0 20px; }
