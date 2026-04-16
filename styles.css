@@ -1930,6 +1930,31 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
 }
 
 /* ============================================================
+   REGISTRATION PAGE
+   ============================================================ */
+.registration-documents {
+  margin-top: 40px;
+}
+
+.registration-documents h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--orange);
+}
+
+.registration-documents p {
+  margin-bottom: 20px;
+  color: var(--white-dim);
+}
+
+.registration-documents img {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  margin-bottom: 40px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* ============================================================
    RESPONSIVE — TABLET
    ============================================================ */
 @media (max-width: 1024px) {
