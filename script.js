@@ -166,7 +166,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
 
     // IMPORTANT REALITY:
     // Even if this runs, email might STILL have sent
-    alert("Request sent. Please check your email for a response within 24 hours.");
+    alert("Network error. Please check your connection and try again.");
   }
 
   btn.innerHTML = 'Request a Free Consultation →';
