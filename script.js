@@ -127,7 +127,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   e.preventDefault();
 
   const btn = document.querySelector('.form-submit');
-  const original = btn.innerHTML;
 
   const data = {
     fullName: document.getElementById('full-name').value,
@@ -150,20 +149,20 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
 
     const result = await res.json();
 
-    if (!res.ok) throw new Error(result.message || 'Failed');
+    if (!res.ok) {
+      throw new Error(result.message || 'Request failed');
+    }
 
-    btn.innerHTML = '✓ Sent Successfully';
-    document.getElementById('contact-form').reset();
+    // ✅ REDIRECT ON SUCCESS
+    window.location.href = "success.html";
 
   } catch (err) {
     console.log(err);
-    btn.innerHTML = 'Error. Try Again';
+    alert("Something went wrong. Please try again.");
   }
 
-  setTimeout(() => {
-    btn.innerHTML = original;
-    btn.disabled = false;
-  }, 3000);
+  btn.innerHTML = 'Request a Free Consultation →';
+  btn.disabled = false;
 });
 
 /*── Legal page: TOC scroll spy ── */
