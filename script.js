@@ -122,56 +122,50 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   wrapProcessSteps();
 
- /* ── Contact form (API version) ── */
-document.getElementById('contact-form').addEventListener('submit', async (e) => {
-  e.preventDefault();
+ const form = document.getElementById('contact-form');
 
-  const btn = document.querySelector('.form-submit');
+if (form) {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const data = {
-    fullName: document.getElementById('full-name').value,
-    businessName: document.getElementById('business-name').value,
-    email: document.getElementById('email').value,
-    requirements: document.getElementById('requirements').value
-  };
+    const btn = document.querySelector('.form-submit');
 
-  btn.innerHTML = 'Sending...';
-  btn.disabled = true;
+    const data = {
+      fullName: document.getElementById('full-name').value,
+      businessName: document.getElementById('business-name').value,
+      email: document.getElementById('email').value,
+      requirements: document.getElementById('requirements').value
+    };
 
-  try {
-    const res = await fetch('https://api.zyma.co.za/api/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    });
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
 
-    // 🔥 DO NOT USE res.json() — THIS IS YOUR BUG
-    const text = await res.text();
+    try {
+      const res = await fetch('https://api.zyma.co.za/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      });
 
-    console.log("API RESPONSE:", text);
+      const text = await res.text();
+      console.log("API RESPONSE:", text);
 
-    // SUCCESS CONDITION = HTTP OK
-    if (res.ok) {
-      window.location.href = "success.html";
-      return;
+      if (res.ok) {
+        window.location.href = "success.html";
+        return;
+      }
+
+      alert("Failed to send message. Please try again.");
+
+    } catch (err) {
+      console.log("NETWORK ERROR:", err);
+      alert("Network error. Please try again.");
     }
 
-    // FAILURE CONDITION
-    alert("Failed to send message. Please try again.");
-
-  } catch (err) {
-    console.log("NETWORK ERROR:", err);
-
-    // IMPORTANT REALITY:
-    // Even if this runs, email might STILL have sent
-    alert("Network error. Please check your connection and try again.");
-  }
-
-  btn.innerHTML = 'Request a Free Consultation →';
-  btn.disabled = false;
-});
+    btn.innerHTML = 'Request a Free Consultation →';
+    btn.disabled = false;
+  });
+}
 
 /*── Legal page: TOC scroll spy ── */
 const tocLinks = document.querySelectorAll('.toc-link');
