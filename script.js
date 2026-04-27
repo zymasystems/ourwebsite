@@ -122,33 +122,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   wrapProcessSteps();
 
-  /* ── Contact form (mailto version) ── */
+ /* ── Contact form (API version) ── */
 const form = document.getElementById('contact-form');
+
 if (form) {
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn  = form.querySelector('.form-submit');
+
+    const btn = form.querySelector('.form-submit');
     const orig = btn.innerHTML;
 
-    const name = document.getElementById('full-name').value;
-    const business = document.getElementById('business-name').value;
-    const email = document.getElementById('email').value;
-    const requirements = document.getElementById('requirements').value;
+    const data = {
+      name: document.getElementById('full-name').value,
+      business: document.getElementById('business-name').value,
+      email: document.getElementById('email').value,
+      requirements: document.getElementById('requirements').value
+    };
 
-    const subject = `Consultation Request from ${business}`;
-    const body = `Name: ${name}\nBusiness: ${business}\nEmail: ${email}\nRequirements:\n${requirements}`;
-
-    btn.innerHTML = 'Opening Email…';
+    btn.innerHTML = 'Sending…';
     btn.disabled = true;
 
-    // Open mail client
-    window.location.href = `mailto:info@zyma.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const res = await fetch('https://api.zyma.co.za/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!res.ok) throw new Error();
+
+      btn.innerHTML = '✓ Request Sent';
+      form.reset();
+
+    } catch (err) {
+      btn.innerHTML = 'Error. Try Again';
+    }
 
     setTimeout(() => {
       btn.innerHTML = orig;
       btn.disabled = false;
-      form.reset();
-    }, 2000);
+    }, 3000);
   });
 }
 /* ── Legal page: TOC scroll spy ── */
