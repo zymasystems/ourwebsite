@@ -144,12 +144,13 @@ if (form) {
 
     try {
       const res = await fetch('https://api.zyma.co.za/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      });
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  mode: 'cors',
+  body: JSON.stringify(data)
+});
 
       if (!res.ok) throw new Error();
 
