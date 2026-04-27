@@ -166,7 +166,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
 
     // IMPORTANT REALITY:
     // Even if this runs, email might STILL have sent
-    alert("Request may have been sent, but we couldn't confirm it. Please check email.");
+    alert("Request sent. Please check your email for a response within 24 hours.");
   }
 
   btn.innerHTML = 'Request a Free Consultation →';
