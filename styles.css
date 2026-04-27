@@ -487,13 +487,22 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   font-weight: 800;
   letter-spacing: .2em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 5px;
 }
 .footer-brand-desc {
   font-size: 13px;
   color: var(--white-dim);
   line-height: 1.65;
   max-width: 220px;
+}
+.footer-brand-reg {
+  font-family: var(--head);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  margin-bottom: 25px;
 }
 .footer-col-title {
   font-family: var(--mono);
@@ -964,6 +973,9 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   color: var(--white-dim);
   text-transform: uppercase;
 }
+
+
+
 
 .service-visual-card {
   position: absolute;
