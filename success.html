@@ -2,15 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Success - Zyma Systems</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body style="display:flex;justify-content:center;align-items:center;height:100vh;background:#0b0b0b;color:white;text-align:center;">
 
-  <div>
-    <h1>✅ Request Sent Successfully</h1>
-    <p>We’ve received your message and will get back to you shortly.</p>
-    <a href="index.html" style="color:#e8890c;">Return Home</a>
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --card: #121212;
+      --text: #ffffff;
+      --muted: #a0a0a0;
+      --accent: #e8890c;
+      --border: rgba(255,255,255,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top, #1a1a1a, var(--bg));
+      color: var(--text);
+    }
+
+    .container {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 40px 30px;
+      border-radius: 16px;
+      text-align: center;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 0 30px rgba(232, 137, 12, 0.08);
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    .icon {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    a {
+      display: inline-block;
+      padding: 10px 18px;
+      background: var(--accent);
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.2s ease;
+    }
+
+    a:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(232, 137, 12, 0.25);
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #666;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="icon">✓</div>
+    <h1>Request Successfully Sent</h1>
+    <p>
+      Your message has been received by Zyma Systems infrastructure.
+      Our team will respond as soon as possible.
+    </p>
+
+    <a href="index.html">Return to Home</a>
+
+    <div class="footer-note">
+      Zyma Systems • Secure API Gateway
+    </div>
   </div>
 
 </body>
