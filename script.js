@@ -123,52 +123,50 @@ document.addEventListener('DOMContentLoaded', () => {
   wrapProcessSteps();
 
  /* ── Contact form (API version) ── */
-const form = document.getElementById('contact-form');
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
-if (form) {
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
+  const btn = document.querySelector('.form-submit');
+  const original = btn.innerHTML;
 
-    const btn = form.querySelector('.form-submit');
-    const original = btn.innerHTML;
+  const data = {
+    fullName: document.getElementById('full-name').value,
+    businessName: document.getElementById('business-name').value,
+    email: document.getElementById('email').value,
+    requirements: document.getElementById('requirements').value
+  };
 
-    const data = {
-      fullName: document.getElementById('full-name').value,
-      businessName: document.getElementById('business-name').value,
-      email: document.getElementById('email').value,
-      requirements: document.getElementById('requirements').value
-    };
+  btn.innerHTML = 'Sending...';
+  btn.disabled = true;
 
-    btn.innerHTML = 'Sending...';
-    btn.disabled = true;
+  try {
+    const res = await fetch('https://api.zyma.co.za/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
 
-    try {
-      const res = await fetch('https://api.zyma.co.za/contact', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  mode: 'cors',
-  body: JSON.stringify(data)
+    const result = await res.json();
+
+    if (!res.ok) throw new Error(result.message || 'Failed');
+
+    btn.innerHTML = '✓ Sent Successfully';
+    document.getElementById('contact-form').reset();
+
+  } catch (err) {
+    console.log(err);
+    btn.innerHTML = 'Error. Try Again';
+  }
+
+  setTimeout(() => {
+    btn.innerHTML = original;
+    btn.disabled = false;
+  }, 3000);
 });
 
-      if (!res.ok) throw new Error();
-
-      btn.innerHTML = '✓ Sent';
-      form.reset();
-
-    } catch (err) {
-      console.log(err);
-      btn.innerHTML = 'Error. Try Again';
-    }
-
-    setTimeout(() => {
-      btn.innerHTML = original;
-      btn.disabled = false;
-    }, 2500);
-  });
-}
-/* ── Legal page: TOC scroll spy ── */
+/*── Legal page: TOC scroll spy ── */
 const tocLinks = document.querySelectorAll('.toc-link');
 if (tocLinks.length) {
   const sections = document.querySelectorAll('.legal-section');
