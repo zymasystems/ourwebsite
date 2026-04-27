@@ -133,11 +133,11 @@ if (form) {
     const orig = btn.innerHTML;
 
     const data = {
-      name: document.getElementById('full-name').value,
-      business: document.getElementById('business-name').value,
-      email: document.getElementById('email').value,
-      requirements: document.getElementById('requirements').value
-    };
+  fullName: document.getElementById('full-name').value,
+  businessName: document.getElementById('business-name').value,
+  email: document.getElementById('email').value,
+  requirements: document.getElementById('requirements').value
+};
 
     btn.innerHTML = 'Sending…';
     btn.disabled = true;
