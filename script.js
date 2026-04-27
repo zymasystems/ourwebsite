@@ -130,16 +130,16 @@ if (form) {
     e.preventDefault();
 
     const btn = form.querySelector('.form-submit');
-    const orig = btn.innerHTML;
+    const original = btn.innerHTML;
 
     const data = {
-  fullName: document.getElementById('full-name').value,
-  businessName: document.getElementById('business-name').value,
-  email: document.getElementById('email').value,
-  requirements: document.getElementById('requirements').value
-};
+      fullName: document.getElementById('full-name').value,
+      businessName: document.getElementById('business-name').value,
+      email: document.getElementById('email').value,
+      requirements: document.getElementById('requirements').value
+    };
 
-    btn.innerHTML = 'Sending…';
+    btn.innerHTML = 'Sending...';
     btn.disabled = true;
 
     try {
@@ -153,17 +153,18 @@ if (form) {
 
       if (!res.ok) throw new Error();
 
-      btn.innerHTML = '✓ Request Sent';
+      btn.innerHTML = '✓ Sent';
       form.reset();
 
     } catch (err) {
+      console.log(err);
       btn.innerHTML = 'Error. Try Again';
     }
 
     setTimeout(() => {
-      btn.innerHTML = orig;
+      btn.innerHTML = original;
       btn.disabled = false;
-    }, 3000);
+    }, 2500);
   });
 }
 /* ── Legal page: TOC scroll spy ── */
