@@ -147,26 +147,26 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
       body: JSON.stringify(data)
     });
 
-    // ⚠️ DO NOT assume JSON will always parse safely
-    let resultText = await res.text();
+    // 🔥 DO NOT USE res.json() — THIS IS YOUR BUG
+    const text = await res.text();
 
-    // If backend is OK (this is what matters)
+    console.log("API RESPONSE:", text);
+
+    // SUCCESS CONDITION = HTTP OK
     if (res.ok) {
-      // SUCCESS PATH
       window.location.href = "success.html";
       return;
     }
 
-    // If backend failed
-    console.log("Server response:", resultText);
+    // FAILURE CONDITION
     alert("Failed to send message. Please try again.");
 
   } catch (err) {
-    console.log("Network error:", err);
+    console.log("NETWORK ERROR:", err);
 
-    // IMPORTANT:
-    // Even if error happens, email might still have sent (as you saw)
-    alert("Request sent, but we could not confirm success. Please check your email confirmation or try again.");
+    // IMPORTANT REALITY:
+    // Even if this runs, email might STILL have sent
+    alert("Request may have been sent, but we couldn't confirm it. Please check email.");
   }
 
   btn.innerHTML = 'Request a Free Consultation →';
