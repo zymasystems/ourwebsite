@@ -139,7 +139,7 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   btn.disabled = true;
 
   try {
-    const res = await fetch('https://api.zyma.co.za/contact', {
+    const res = await fetch('https://api.zyma.co.za/api/contact', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
