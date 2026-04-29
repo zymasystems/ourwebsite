@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
   integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" 
   referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
   <meta property="og:title" content="Zyma Systems">
   <meta property="og:description" content="Automation and internal systems software for modern businesses.">
@@ -20,7 +21,6 @@
   <meta name="twitter:title" content="Zyma Systems">
   <meta name="twitter:description" content="Automation and internal systems software for modern businesses.">
   <meta name="twitter:image" content="https://zyma.co.za/images/5.png">
-
 </head>
 <body>
 
@@ -29,9 +29,9 @@
     <a href="index.html" class="nav-logo">Zyma Systems</a>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
-      <a href="services.html" >Services</a>
-      <a href="about.html" >About</a>
-      <a href="contact.html" >Contact</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </div>
     <a href="contact.html" class="nav-cta">Book a Consultation</a>
     <button class="nav-hamburger" aria-label="Toggle menu" id="nav-hamburger">
@@ -58,7 +58,6 @@
           <span class="mob-text">About</span>
           <span class="mob-arrow">→</span>
         </a>
-
         <a href="contact.html" class="mob-link">
           <span class="mob-num">05</span>
           <span class="mob-text">Contact</span>
@@ -91,7 +90,6 @@
         <a href="services.html" class="btn btn-outline">View Services</a>
       </div>
     </div>
-   
   </section>
 
   <!-- ══ PAIN POINTS ══ -->
@@ -259,24 +257,16 @@
           <ul>
             <li><a href="Privacy.html">Privacy Policy</a></li>
             <li><a href="terms.html">Terms of Service</a></li>
-            <li><a href="registration.html"> Company Registration</a></li>
+            <li><a href="registration.html">Company Registration</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <div class="Social media"> 
+          <div class="Social media">
             <div class="footer-col-title">Social Media</div>
-            <a href="https://twitter.com/zymasystems" target="_blank">
-              <i class="fa-brands fa-twitter"> </i>
-            </a>
-            <a href="https://www.instagram.com/zymasystems/" target="_blank">
-              <i class="fa-brands fa-instagram"> </i>
-            </a>
-            <a href="https://www.linkedin.com/company/zymasystems" target="_blank">
-              <i class="fa-brands fa-linkedin"> </i>
-            </a>
-            <a href="https://github.com/zymasystems" target="_blank">
-              <i class="fa-brands fa-github"> </i >
-            </a>
+            <a href="https://twitter.com/zymasystems" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://www.instagram.com/zymasystems/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/zymasystems" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/zymasystems" target="_blank"><i class="fa-brands fa-github"></i></a>
           </div>
           <br>
           <div class="footer-col-title">Operational Status</div>
@@ -291,5 +281,69 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ══ ZYRA CHATBOT ══ -->
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+    createChat({
+      webhookUrl: 'https://n8n.zyma.co.za/webhook/050af829-dd9b-455f-8ad9-175229f66261/chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        'Hi, I\'m Zyra — Zyma Systems\' assistant.',
+        'Ask me anything about business automation, or I can help get you in touch with our team.'
+      ],
+      i18n: {
+        en: {
+          title: 'Zyra',
+          subtitle: 'Zyma Systems Assistant',
+          inputPlaceholder: 'Ask me anything...',
+          getStarted: 'Start Chat',
+          closeButtonTooltip: 'Close',
+        }
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --chat--color-primary: #e8890c;
+      --chat--color-primary-shade-50: #d4780a;
+      --chat--color-primary-shade-100: #c06808;
+      --chat--color-secondary: #e8890c;
+      --chat--color-secondary-shade-50: #d4780a;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #1a1a1a;
+      --chat--color-light-shade-50: #222222;
+      --chat--color-light-shade-100: #2a2a2a;
+      --chat--color-medium: #666666;
+      --chat--color-dark: #0a0a0a;
+      --chat--color-disabled: #444444;
+      --chat--color-typing: #e8890c;
+      --chat--header--background: #111111;
+      --chat--header--color: #ffffff;
+      --chat--message--bot--background: #161616;
+      --chat--message--bot--color: #ffffff;
+      --chat--message--user--background: #e8890c;
+      --chat--message--user--color: #000000;
+      --chat--window--background: #0a0a0a;
+      --chat--window--width: 380px;
+      --chat--input--background: #111111;
+      --chat--input--border-color: #2a2a2a;
+      --chat--input--text-color: #ffffff;
+      --chat--input--placeholder--color: #555555;
+      --chat--toggle--background: #e8890c;
+      --chat--toggle--hover--background: #d4780a;
+      --chat--toggle--active--background: #c06808;
+      --chat--toggle--color: #000000;
+      --chat--toggle--size: 56px;
+      --chat--border-radius: 8px;
+    }
+  </style>
+
 </body>
 </html>
