@@ -209,6 +209,83 @@
   </footer>
 
   <script src="script.js"></script>
+
+  <!-- ══ ZYRA CHATBOT ══ -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    createChat({
+      webhookUrl: 'https://n8n.zyma.co.za/webhook/050af829-dd9b-455f-8ad9-175229f66261/chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        "Hi, I'm Zyra!",
+        "Ask me anything about business automation or I can help connect you with the Zyma team."
+      ],
+      i18n: {
+        en: {
+          title: 'Zyra',
+          subtitle: 'Zyma Systems Assistant',
+          inputPlaceholder: 'Ask me anything...',
+          getStarted: 'Start Chat',
+          closeButtonTooltip: 'Close chat',
+        }
+      }
+    });
+  </script>
+  <style>
+    :root {
+      --chat--color-primary: #e8890c;
+      --chat--color-primary-shade-50: #d4780a;
+      --chat--color-primary-shade-100: #c06808;
+      --chat--color-secondary: #e8890c;
+      --chat--color-secondary-shade-50: #d4780a;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #1a1a1a;
+      --chat--color-light-shade-50: #222222;
+      --chat--color-light-shade-100: #2a2a2a;
+      --chat--color-medium: #666666;
+      --chat--color-dark: #0a0a0a;
+      --chat--color-disabled: #444444;
+      --chat--color-typing: #e8890c;
+      --chat--header--background: #111111;
+      --chat--header--color: #ffffff;
+      --chat--message--bot--background: #1a1a1a;
+      --chat--message--bot--color: #ffffff;
+      --chat--message--user--background: #e8890c;
+      --chat--message--user--color: #000000;
+      --chat--window--background: #0d0d0d;
+      --chat--window--width: 370px;
+      --chat--input--background: #111111;
+      --chat--input--border-color: #2a2a2a;
+      --chat--input--text-color: #ffffff;
+      --chat--input--placeholder--color: #555555;
+      --chat--toggle--background: #e8890c;
+      --chat--toggle--hover--background: #d4780a;
+      --chat--toggle--active--background: #c06808;
+      --chat--toggle--color: #000000;
+      --chat--toggle--size: 54px;
+      --chat--border-radius: 10px;
+    }
+    @media (max-width: 480px) {
+      :root { --chat--window--width: 100vw; }
+      .n8n-chat .chat-window {
+        width: 100vw !important;
+        height: 85vh !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        border-radius: 16px 16px 0 0 !important;
+      }
+      .n8n-chat .chat-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+      }
+    }
+  </style>
+
 </body> 
 
 

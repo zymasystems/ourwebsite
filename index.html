@@ -9,8 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" 
   integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" 
   referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-
   <meta property="og:title" content="Zyma Systems">
   <meta property="og:description" content="Automation and internal systems software for modern businesses.">
   <meta property="og:image" content="https://zyma.co.za/images/5.png">
@@ -282,10 +280,11 @@
 
   <script src="script.js"></script>
 
+
   <!-- ══ ZYRA CHATBOT ══ -->
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
     createChat({
       webhookUrl: 'https://n8n.zyma.co.za/webhook/050af829-dd9b-455f-8ad9-175229f66261/chat',
       mode: 'window',
@@ -294,8 +293,8 @@
       showWelcomeScreen: false,
       defaultLanguage: 'en',
       initialMessages: [
-        'Hi, I\'m Zyra — Zyma Systems\' assistant.',
-        'Ask me anything about business automation, or I can help get you in touch with our team.'
+        "Hi, I'm Zyra!",
+        "Ask me anything about business automation or I can help connect you with the Zyma team."
       ],
       i18n: {
         en: {
@@ -303,12 +302,11 @@
           subtitle: 'Zyma Systems Assistant',
           inputPlaceholder: 'Ask me anything...',
           getStarted: 'Start Chat',
-          closeButtonTooltip: 'Close',
+          closeButtonTooltip: 'Close chat',
         }
       }
     });
   </script>
-
   <style>
     :root {
       --chat--color-primary: #e8890c;
@@ -326,12 +324,12 @@
       --chat--color-typing: #e8890c;
       --chat--header--background: #111111;
       --chat--header--color: #ffffff;
-      --chat--message--bot--background: #161616;
+      --chat--message--bot--background: #1a1a1a;
       --chat--message--bot--color: #ffffff;
       --chat--message--user--background: #e8890c;
       --chat--message--user--color: #000000;
-      --chat--window--background: #0a0a0a;
-      --chat--window--width: 380px;
+      --chat--window--background: #0d0d0d;
+      --chat--window--width: 370px;
       --chat--input--background: #111111;
       --chat--input--border-color: #2a2a2a;
       --chat--input--text-color: #ffffff;
@@ -340,8 +338,22 @@
       --chat--toggle--hover--background: #d4780a;
       --chat--toggle--active--background: #c06808;
       --chat--toggle--color: #000000;
-      --chat--toggle--size: 56px;
-      --chat--border-radius: 8px;
+      --chat--toggle--size: 54px;
+      --chat--border-radius: 10px;
+    }
+    @media (max-width: 480px) {
+      :root { --chat--window--width: 100vw; }
+      .n8n-chat .chat-window {
+        width: 100vw !important;
+        height: 85vh !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        border-radius: 16px 16px 0 0 !important;
+      }
+      .n8n-chat .chat-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+      }
     }
   </style>
 
