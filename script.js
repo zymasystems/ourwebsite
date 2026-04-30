@@ -246,6 +246,11 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── Zyra lead capture → API ── */
   // Watch for n8n chat to load, then intercept messages
   function initZyraLeadCapture() {
+    // Notification sound for incoming bot messages
+    const botSound = new Audio('images/arnav_geddada-ui-sound-374228.mp3');
+    botSound.preload = 'auto';
+    botSound.volume = 0.8;
+
     // Track collected fields across conversation
     const leadData = { fullName: null, email: null, businessName: null, requirements: null };
     let submitted = false;
@@ -256,6 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
       messages.forEach(msg => {
         if (msg.dataset.zyraChecked) return;
         msg.dataset.zyraChecked = 'true';
+        botSound.play().catch(() => {});
         const text = msg.textContent || '';
 
         // Check if bot confirmed it has all details (trigger phrase from system prompt)
