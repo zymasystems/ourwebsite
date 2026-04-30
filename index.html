@@ -285,204 +285,76 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   <script type="module">
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-createChat({
-  webhookUrl: 'https://n8n.zyma.co.za/webhook/050af829-dd9b-455f-8ad9-175229f66261/chat',
-  mode: 'window',
-  chatInputKey: 'chatInput',
-  chatSessionKey: 'sessionId',
-  showWelcomeScreen: false,
-  defaultLanguage: 'en',
-
-  initialMessages: [
-    "Hi, I'm Zyra!",
-    "Ask me anything about automation, systems, or scaling your business."
-  ],
-
-  i18n: {
-    en: {
-      title: 'Zyra',
-      subtitle: 'Zyma Systems Assistant',
-      inputPlaceholder: 'Ask me anything...',
-      getStarted: 'Start Chat',
-      closeButtonTooltip: 'Close chat',
-    }
-  }
-});
-
-/* ================================
-   SAFE CHAT ENHANCEMENT ENGINE
-================================ */
-function enhanceChat() {
-  const observer = new MutationObserver(() => {
-    const toggle = document.querySelector('.chat-toggle');
-
-    if (toggle && !toggle.dataset.enhanced) {
-      toggle.dataset.enhanced = "true";
-
-      toggle.style.animation = "zyraPulse 2.5s infinite";
-      toggle.style.boxShadow =
-        "0 10px 30px rgba(232, 137, 12, 0.4), 0 0 0 6px rgba(232, 137, 12, 0.08)";
-    }
-  });
-
-  observer.observe(document.body, {
-    childList: true,
-    subtree: true
-  });
-}
-
-enhanceChat();
+    createChat({
+      webhookUrl: 'https://n8n.zyma.co.za/webhook/050af829-dd9b-455f-8ad9-175229f66261/chat',
+      mode: 'window',
+      chatInputKey: 'chatInput',
+      chatSessionKey: 'sessionId',
+      showWelcomeScreen: false,
+      defaultLanguage: 'en',
+      initialMessages: [
+        "Hi, I'm Zyra!",
+        "Ask me anything about business automation, our services, or how we can help you scale your operations. I'm here to assist you with any questions you have about Zyma Systems and how we can transform your business with automation."
+      ],
+      i18n: {
+        en: {
+          title: 'Zyra',
+          subtitle: 'Zyma Systems Assistant',
+          inputPlaceholder: 'Ask me anything...',
+          getStarted: 'Start Chat',
+          closeButtonTooltip: 'Close chat',
+        }
+      }
+    });
   </script>
   <style>
     :root {
-  --chat--color-primary: #e8890c;
-  --chat--color-primary-shade-50: #d4780a;
-  --chat--color-primary-shade-100: #c06808;
-
-  --chat--color-white: #ffffff;
-  --chat--color-dark: #0a0a0a;
-
-  --chat--window--width: 380px;
-
-  --chat--border-radius: 18px;
-
-  --chat--window--background: rgba(13, 13, 13, 0.72);
-  --chat--input--background: rgba(20, 20, 20, 0.8);
-
-  --chat--message--bot--background: rgba(26, 26, 26, 0.85);
-  --chat--message--user--background: #e8890c;
-
-  --chat--message--bot--color: #ffffff;
-  --chat--message--user--color: #000000;
-
-  --chat--toggle--size: 58px;
-  --chat--toggle--background: #e8890c;
-  --chat--toggle--hover--background: #ff9a1a;
-
-  --chat--header--background: rgba(17, 17, 17, 0.9);
-  --chat--header--color: #ffffff;
-}
-
-@keyframes zyraPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(232, 137, 12, 0.5);
-  }
-  70% {
-    box-shadow: 0 0 0 14px rgba(232, 137, 12, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(232, 137, 12, 0);
-  }
-}
-
-/* ========== CHAT WINDOW (glass + premium float) ========== */
-.n8n-chat .chat-window {
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
-
-  background: var(--chat--window--background) !important;
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--chat--border-radius) !important;
-
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.7),
-    0 0 0 1px rgba(232, 137, 12, 0.08);
-
-  overflow: hidden;
-
-  transform-origin: bottom right;
-  animation: chatPop 220ms ease-out;
-}
-
-/* smooth entrance */
-@keyframes chatPop {
-  from {
-    transform: scale(0.92);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-/* ========== HEADER ========== */
-.n8n-chat .chat-header {
-  background: var(--chat--header--background) !important;
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-/* ========== MESSAGES ========== */
-.n8n-chat .chat-message {
-  line-height: 1.45;
-  font-size: 14px;
-}
-
-/* bot message */
-.n8n-chat .chat-message--bot {
-  border-radius: 14px 14px 14px 6px;
-  margin: 6px 0;
-}
-
-/* user message */
-.n8n-chat .chat-message--user {
-  border-radius: 14px 14px 6px 14px;
-  font-weight: 500;
-}
-
-/* ========== INPUT BAR ========== */
-.n8n-chat .chat-input {
-  background: rgba(10,10,10,0.6) !important;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  padding: 10px;
-}
-
-.n8n-chat input {
-  border-radius: 12px !important;
-  padding: 12px 14px;
-  font-size: 14px;
-}
-
-/* ========== SEND BUTTON ========== */
-.n8n-chat button[type="submit"] {
-  background: linear-gradient(135deg, #e8890c, #ff9a1a);
-  border-radius: 12px !important;
-  transition: transform 0.15s ease;
-}
-
-.n8n-chat button[type="submit"]:hover {
-  transform: translateY(-1px);
-}
-
-/* ========== TOGGLE BUTTON ========== */
-.n8n-chat .chat-toggle {
-  box-shadow:
-    0 10px 30px rgba(232, 137, 12, 0.35),
-    0 0 0 6px rgba(232, 137, 12, 0.08);
-
-  transition: transform 0.2s ease;
-}
-
-.n8n-chat .chat-toggle:hover {
-  transform: scale(1.06);
-}
-
-/* ========== MOBILE FIX ========== */
-@media (max-width: 480px) {
-  .n8n-chat .chat-window {
-    width: 100vw !important;
-    height: 88vh !important;
-    bottom: 0 !important;
-    right: 0 !important;
-    border-radius: 20px 20px 0 0 !important;
-  }
-}
+      --chat--color-primary: #e8890c;
+      --chat--color-primary-shade-50: #d4780a;
+      --chat--color-primary-shade-100: #c06808;
+      --chat--color-secondary: #e8890c;
+      --chat--color-secondary-shade-50: #d4780a;
+      --chat--color-white: #ffffff;
+      --chat--color-light: #1a1a1a;
+      --chat--color-light-shade-50: #222222;
+      --chat--color-light-shade-100: #2a2a2a;
+      --chat--color-medium: #666666;
+      --chat--color-dark: #0a0a0a;
+      --chat--color-disabled: #444444;
+      --chat--color-typing: #e8890c;
+      --chat--header--background: #111111;
+      --chat--header--color: #ffffff;
+      --chat--message--bot--background: #1a1a1a;
+      --chat--message--bot--color: #ffffff;
+      --chat--message--user--background: #e8890c;
+      --chat--message--user--color: #000000;
+      --chat--window--background: #0d0d0d;
+      --chat--window--width: 370px;
+      --chat--input--background: #111111;
+      --chat--input--border-color: #2a2a2a;
+      --chat--input--text-color: #ffffff;
+      --chat--input--placeholder--color: #555555;
+      --chat--toggle--background: #e8890c;
+      --chat--toggle--hover--background: #d4780a;
+      --chat--toggle--active--background: #c06808;
+      --chat--toggle--color: #000000;
+      --chat--toggle--size: 54px;
+      --chat--border-radius: 10px;
+    }
+    @media (max-width: 480px) {
+      :root { --chat--window--width: 100vw; }
+      .n8n-chat .chat-window {
+        width: 100vw !important;
+        height: 85vh !important;
+        bottom: 0 !important;
+        right: 0 !important;
+        border-radius: 16px 16px 0 0 !important;
+      }
+      .n8n-chat .chat-toggle {
+        bottom: 20px !important;
+        right: 20px !important;
+      }
+    }
   </style>
 
 </body>
