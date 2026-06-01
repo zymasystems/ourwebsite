@@ -65,6 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
       closeNav();
     });
 
+    // Close on close button click
+    const closeButton = overlay.querySelector('.mobile-overlay-close');
+    if (closeButton) {
+      closeButton.addEventListener('click', () => {
+        closeNav();
+      });
+    }
+
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && overlay.classList.contains('open')) {
