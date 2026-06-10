@@ -1092,6 +1092,16 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   filter: grayscale(0%);
   transform: scale(1.03);
 }
+.team-group-img {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 24px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+  filter: none;
+}
 .team-img-overlay {
   position: absolute;
   inset: 0;
