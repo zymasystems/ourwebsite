@@ -1,0 +1,39 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#0B1115"/>
+  <rect x="40" y="50" width="1120" height="660" rx="22" fill="#101A1F" stroke="#27373E"/>
+  <rect x="90" y="110" width="228" height="60" rx="12" fill="#F1C75B"/>
+  <text x="126" y="150" fill="#0C1012" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="800">LUX</text>
+  <rect x="845" y="120" width="220" height="40" rx="12" fill="#1D2E35"/>
+  <rect x="870" y="136" width="74" height="8" rx="4" fill="#F1C75B"/>
+  <rect x="958" y="136" width="72" height="8" rx="4" fill="#5F6F7A"/>
+  <rect x="90" y="220" width="470" height="300" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <circle cx="352" cy="370" r="118" fill="#F1C75B" opacity="0.12"/>
+  <path d="M280 420L352 300L425 420H280Z" fill="#F1C75B" opacity="0.8"/>
+  <path d="M352 300V420" stroke="#F1C75B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M320 390H384" stroke="#F1C75B" stroke-width="8" stroke-linecap="round"/>
+  <path d="M170 436C223 386 266 358 318 338C361 322 411 311 482 297" stroke="#F1C75B" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="170" cy="436" r="16" fill="#F1C75B"/>
+  <circle cx="318" cy="338" r="16" fill="#F1C75B"/>
+  <circle cx="482" cy="297" r="16" fill="#F1C75B"/>
+  <rect x="610" y="220" width="500" height="150" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <rect x="648" y="255" width="170" height="12" rx="6" fill="#5F6F7A"/>
+  <rect x="648" y="282" width="228" height="12" rx="6" fill="#5F6F7A" opacity="0.8"/>
+  <rect x="648" y="309" width="128" height="12" rx="6" fill="#F1C75B"/>
+  <rect x="610" y="398" width="230" height="170" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <rect x="876" y="398" width="234" height="170" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <rect x="648" y="430" width="110" height="12" rx="6" fill="#5F6F7A"/>
+  <rect x="648" y="457" width="160" height="12" rx="6" fill="#5F6F7A" opacity="0.8"/>
+  <rect x="648" y="484" width="140" height="12" rx="6" fill="#F1C75B"/>
+  <path d="M925 512C951 472 976 452 1014 451C1041 450 1061 467 1081 494" stroke="#F1C75B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="925" cy="512" r="8" fill="#F1C75B"/>
+  <circle cx="1014" cy="451" r="8" fill="#F1C75B"/>
+  <circle cx="1081" cy="494" r="8" fill="#F1C75B"/>
+  <rect x="90" y="570" width="220" height="88" rx="18" fill="#F1C75B"/>
+  <text x="118" y="620" fill="#0C1012" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="800">SOLAR</text>
+  <rect x="340" y="570" width="180" height="88" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <text x="378" y="620" fill="#F5F7F8" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">FUEL</text>
+  <rect x="550" y="570" width="180" height="88" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <text x="575" y="620" fill="#F5F7F8" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">POWER</text>
+  <rect x="760" y="570" width="180" height="88" rx="18" fill="#16252C" stroke="#2A3C45"/>
+  <text x="794" y="620" fill="#F5F7F8" font-family="Segoe UI, Arial, sans-serif" font-size="26" font-weight="700">LOGIS</text>
+</svg>

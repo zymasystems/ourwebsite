@@ -1,0 +1,33 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" rx="28" fill="#0E0E10"/>
+  <rect x="40" y="50" width="1120" height="660" rx="20" fill="#14181D" stroke="#2B2F37"/>
+  <rect x="90" y="110" width="210" height="54" rx="12" fill="#F28C28"/>
+  <text x="130" y="147" fill="#111111" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700">MARCUS</text>
+  <rect x="840" y="120" width="220" height="42" rx="10" fill="#1B2128"/>
+  <rect x="875" y="136" width="84" height="10" rx="5" fill="#F28C28" opacity="0.8"/>
+  <rect x="970" y="136" width="58" height="10" rx="5" fill="#4E5B6A"/>
+  <rect x="90" y="210" width="480" height="300" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <path d="M144 434C205 392 257 343 293 305C335 260 394 222 496 203" stroke="#F28C28" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="150" cy="432" r="16" fill="#F28C28"/>
+  <circle cx="293" cy="304" r="16" fill="#F28C28"/>
+  <circle cx="496" cy="203" r="16" fill="#F28C28"/>
+  <rect x="610" y="210" width="500" height="126" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <rect x="644" y="245" width="154" height="12" rx="6" fill="#4E5B6A"/>
+  <rect x="644" y="271" width="210" height="12" rx="6" fill="#4E5B6A" opacity="0.7"/>
+  <rect x="644" y="297" width="112" height="12" rx="6" fill="#F28C28"/>
+  <rect x="610" y="364" width="220" height="146" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <rect x="856" y="364" width="254" height="146" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <rect x="640" y="396" width="120" height="54" rx="12" fill="#F28C28" opacity="0.15"/>
+  <rect x="640" y="466" width="160" height="10" rx="5" fill="#4E5B6A"/>
+  <rect x="892" y="400" width="182" height="12" rx="6" fill="#4E5B6A"/>
+  <rect x="892" y="430" width="147" height="12" rx="6" fill="#4E5B6A" opacity="0.75"/>
+  <rect x="892" y="460" width="163" height="12" rx="6" fill="#F28C28"/>
+  <rect x="90" y="560" width="260" height="90" rx="18" fill="#F28C28"/>
+  <text x="120" y="607" fill="#111111" font-family="Segoe UI, Arial, sans-serif" font-size="32" font-weight="700">BOOK NOW</text>
+  <rect x="384" y="560" width="180" height="90" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <text x="415" y="607" fill="#F2F3F4" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600">Fleet</text>
+  <rect x="598" y="560" width="180" height="90" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <text x="628" y="607" fill="#F2F3F4" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600">Routes</text>
+  <rect x="812" y="560" width="180" height="90" rx="18" fill="#1B2128" stroke="#2B2F37"/>
+  <text x="848" y="607" fill="#F2F3F4" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="600">Trips</text>
+</svg>
