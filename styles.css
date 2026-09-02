@@ -1291,6 +1291,133 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   color: var(--orange);
 }
 
+.gmc-app-visual {
+  padding: 40px;
+  flex-direction: column;
+  gap: 24px;
+}
+.gmc-app-visual .service-visual-card {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+  padding: 18px 20px 20px;
+  border-color: rgba(10,10,10,.15);
+  border-left: 3px solid var(--orange);
+  background: #f0ede8;
+  color: var(--black);
+  border-radius: 10px;
+  box-shadow: 0 10px 22px rgba(0,0,0,.14);
+  z-index: 2;
+}
+.gmc-app-visual .svc-mini-label {
+  margin-bottom: 0;
+  line-height: 1.2;
+  color: #6e6963;
+  text-align: center;
+}
+.gmc-app-visual .svc-mini-val {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 22px;
+  line-height: 1;
+  text-align: center;
+  color: var(--black);
+}
+.gmc-app-visual .partner-card-link:hover { color: #d7263d; }
+.gmc-partner-plus { color: var(--orange); font-size: 16px; }
+.gmc-app-preview {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 330px);
+  min-height: 300px;
+  padding: 24px;
+  background: #f0ede8;
+  color: var(--black);
+  border-radius: 18px;
+  box-shadow: 18px 18px 0 rgba(232,137,12,.2);
+}
+.gmc-partnership {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -12px 0 28px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--orange);
+  background: var(--orange-bg);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.gmc-partnership-label { color: var(--white-dim); }
+.gmc-partnership a,
+.inline-partner-link,
+.partner-card-link {
+  color: var(--orange);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--transition);
+}
+.gmc-partnership a:hover,
+.inline-partner-link:hover,
+.partner-card-link:hover { color: var(--white); }
+.gmc-partnership-symbol { color: var(--white-dim); }
+.gmc-app-topline {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  color: #6e6963;
+}
+.gmc-app-logo {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  margin: 24px 0 18px;
+  background: var(--black);
+  border-radius: 8px;
+}
+.gmc-app-title {
+  font-family: var(--head);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: .95;
+  text-transform: uppercase;
+}
+.gmc-app-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 28px;
+}
+.gmc-app-features span {
+  padding: 6px 9px;
+  border: 1px solid rgba(10,10,10,.2);
+  border-radius: 99px;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .gmc-app-visual { padding: 24px; }
+  .gmc-app-visual .service-visual-card { gap: 12px; }
+  .gmc-app-visual .svc-mini-val { font-size: 18px; }
+}
+
 /* ── Team Cards ── */
 .team-card {
   border: 1px solid var(--border);
