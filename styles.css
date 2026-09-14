@@ -316,6 +316,8 @@ ul { list-style: none; }
   display: inline-block;
 }
 
+
+
 h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
 
 .display {
@@ -724,6 +726,18 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   color: var(--white-dim);
   margin-bottom: 25px;
 }
+.footer-badge-link {
+  display: inline-block;
+  margin-top: 8px;
+}
+.footer-partner-badge {
+  width: 180px;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  transition: opacity var(--transition);
+}
+.footer-badge-link:hover .footer-partner-badge { opacity: .85; }
 .footer-col-title {
   font-family: var(--mono);
   font-size: 10px;
