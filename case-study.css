@@ -161,57 +161,10 @@
   color: var(--white);
 }
 .cs-hub-visual-caption span { color: var(--orange); }
-/* ── GMC emblem visual (no screenshot available yet) ── */
-.cs-hub-visual--gmc {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(ellipse 60% 70% at 50% 30%, rgba(232,137,12,.14) 0%, transparent 70%),
-    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.035) 39px, rgba(255,255,255,.035) 40px),
-    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.035) 39px, rgba(255,255,255,.035) 40px),
-    var(--card2);
-}
-.cs-hub-emblem {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 58px 24px 44px;
-  text-align: center;
-}
-.cs-hub-emblem-logo {
-  width: 108px;
-  height: 108px;
-  object-fit: contain;
-  padding: 5px;
-  background: var(--black);
-  border: 1px solid var(--border2);
-  border-radius: 12px;
-  box-shadow: 0 16px 32px rgba(0,0,0,.5);
-  transition: transform var(--transition);
-}
-.cs-hub-card:hover .cs-hub-emblem-logo { transform: translateY(-5px); }
-.cs-hub-emblem-chips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 7px;
-}
-.cs-hub-emblem-chips span {
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: var(--white);
-  background: rgba(10,10,10,.55);
-  border: 1px solid var(--border2);
-  border-radius: 99px;
-  padding: 5px 11px;
-  backdrop-filter: blur(4px);
-}
+/* ── GMC card visual (device cover shot) ── */
+.cs-hub-visual--gmc { background: var(--card2); }
+/* The GMC cover is a 3:2 device scene, so it is centred rather than top-aligned */
+.cs-hub-shot--cover { object-position: center 48%; }
 
 /* ── Card body ── */
 .cs-hub-body {
@@ -538,8 +491,6 @@
   .cs-hub-visual { height: 210px; }
   .cs-hub-body { padding: 24px; }
   .cs-hub-title { font-size: 23px; }
-  .cs-hub-emblem { padding: 42px 20px 34px; }
-  .cs-hub-emblem-logo { width: 88px; height: 88px; }
   .cs-hub-method { padding: 48px 0; }
   .cs-hub-method-grid { grid-template-columns: 1fr; }
 }
@@ -585,6 +536,45 @@
   gap: 64px;
   align-items: center;
   padding-bottom: 80px;
+}
+/* Tighter hero gap when a product cover image follows the hero */
+.cs-hero-grid--cover { padding-bottom: 44px; }
+
+/* ── Product cover (hero image band) ── */
+.cs-cover {
+  position: relative;
+  margin: 0 0 72px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card2);
+  box-shadow: 0 30px 60px rgba(0,0,0,.5);
+}
+.cs-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cs-cover-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  background: var(--card);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-cover-caption-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--orange);
+  box-shadow: 0 0 0 3px rgba(232,137,12,.15);
 }
 
 .cs-tags {
@@ -797,6 +787,7 @@
   max-width: 680px;
 }
 .cs-section p:last-child { margin-bottom: 0; }
+.cs-section p strong { color: var(--white); font-weight: 600; }
 
 /* ── Callout ── */
 .cs-callout {
@@ -1136,9 +1127,8 @@
   .cs-phase-feature:last-child { border-bottom: none !important; }
   .cs-hub-meta { grid-template-columns: 1fr; }
   .cs-hub-visual { height: 200px; }
-  .cs-hub-emblem { padding: 34px 14px 30px; }
-  .cs-hub-emblem-logo { width: 80px; height: 80px; }
-  .cs-hub-emblem-chips span { font-size: 8px; padding: 4px 8px; }
+  /* Device cover scene needs a little more height so both devices stay in frame */
+  .cs-hub-visual--gmc { height: 230px; }
   .cs-hub-metric { padding: 12px 10px; }
   .cs-hub-metric-val { font-size: 20px; }
   .cs-metrics-grid { grid-template-columns: 1fr 1fr; }
