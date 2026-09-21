@@ -3,6 +3,547 @@
    Extends styles.css — do not import standalone
    ============================================================ */
 
+/* ============================================================
+   CASE STUDY HUB — 2-up project selector
+   ============================================================ */
+
+/* ── Hub status bar ── */
+.cs-hub-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 40px;
+}
+.cs-hub-bar-count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-hub-bar-count b {
+  font-family: var(--head);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0;
+  color: var(--orange);
+}
+.cs-hub-bar-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.cs-hub-bar-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 6px 13px;
+}
+
+/* ── Hub grid + card shell ── */
+.cs-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.cs-hub-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), opacity .6s ease, transform .6s ease, translate var(--transition);
+}
+.cs-hub-card:hover { border-color: var(--border2); translate: 0 -4px; }
+.cs-hub-card:focus-within { border-color: var(--orange); }
+
+/* ── Card visual band ── */
+.cs-hub-visual {
+  position: relative;
+  height: 268px;
+  background: var(--card2);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+.cs-hub-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(10,10,10,.62) 0%, rgba(10,10,10,0) 42%, rgba(10,10,10,.88) 100%);
+}
+.cs-hub-shot {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  opacity: .9;
+  transition: transform .5s cubic-bezier(.4,0,.2,1), opacity var(--transition);
+}
+.cs-hub-card:hover .cs-hub-shot { transform: scale(1.03); opacity: 1; }
+.cs-hub-visual-top {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cs-hub-index {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .18em;
+  color: var(--white);
+  background: rgba(10,10,10,.72);
+  border: 1px solid var(--border2);
+  border-radius: 2px;
+  padding: 5px 11px;
+  backdrop-filter: blur(6px);
+}
+.cs-hub-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  padding: 5px 11px;
+  backdrop-filter: blur(6px);
+}
+.cs-hub-state::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: pulse 2s infinite;
+}
+.cs-hub-state--live {
+  color: var(--green);
+  background: rgba(61,220,132,.12);
+  border: 1px solid rgba(61,220,132,.28);
+}
+.cs-hub-state--wip {
+  color: var(--orange);
+  background: rgba(232,137,12,.12);
+  border: 1px solid rgba(232,137,12,.3);
+}
+.cs-hub-visual-caption {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 14px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.cs-hub-visual-caption span { color: var(--orange); }
+/* ── GMC emblem visual (no screenshot available yet) ── */
+.cs-hub-visual--gmc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 30%, rgba(232,137,12,.14) 0%, transparent 70%),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.035) 39px, rgba(255,255,255,.035) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.035) 39px, rgba(255,255,255,.035) 40px),
+    var(--card2);
+}
+.cs-hub-emblem {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 58px 24px 44px;
+  text-align: center;
+}
+.cs-hub-emblem-logo {
+  width: 108px;
+  height: 108px;
+  object-fit: contain;
+  padding: 5px;
+  background: var(--black);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0,0,0,.5);
+  transition: transform var(--transition);
+}
+.cs-hub-card:hover .cs-hub-emblem-logo { transform: translateY(-5px); }
+.cs-hub-emblem-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 7px;
+}
+.cs-hub-emblem-chips span {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: rgba(10,10,10,.55);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 5px 11px;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Card body ── */
+.cs-hub-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px;
+}
+.cs-hub-eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+.cs-hub-title {
+  font-family: var(--head);
+  font-size: 27px;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.cs-hub-title a { color: var(--white); transition: color var(--transition); }
+.cs-hub-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius);
+}
+.cs-hub-card:hover .cs-hub-title a { color: var(--orange); }
+.cs-hub-desc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--white-dim);
+  margin-bottom: 24px;
+}
+.cs-hub-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.cs-hub-metric {
+  padding: 14px 12px;
+  background: var(--card2);
+  border-right: 1px solid var(--border);
+}
+.cs-hub-metric:last-child { border-right: none; }
+.cs-hub-metric-val {
+  font-family: var(--head);
+  font-size: 23px;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+.cs-hub-metric-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-hub-partner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  min-height: 72px;
+  padding: 14px 16px;
+  margin-bottom: 24px;
+  background: var(--orange-bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--orange);
+  border-radius: var(--radius);
+}
+.cs-hub-partner-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-hub-partner-val {
+  font-family: var(--head);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.cs-hub-partner-val i { color: var(--orange); font-style: normal; }
+.cs-hub-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 20px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+.cs-hub-meta-item { display: flex; flex-direction: column; gap: 3px; }
+.cs-hub-meta-label {
+  font-family: var(--mono);
+  font-size: 8px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-hub-meta-val {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.45;
+  color: var(--white);
+}
+.cs-hub-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.cs-hub-tag {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  border: 1px solid var(--border2);
+  border-radius: 99px;
+  padding: 5px 11px;
+}
+.cs-hub-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.cs-hub-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.cs-hub-read-arrow { transition: transform var(--transition); }
+.cs-hub-card:hover .cs-hub-read-arrow { transform: translateX(4px); }
+.cs-hub-side-link {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  transition: color var(--transition);
+}
+.cs-hub-side-link:hover { color: var(--orange); }
+.cs-hub-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 32px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .14em;
+  line-height: 1.6;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cs-hub-note::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--orange);
+  flex-shrink: 0;
+  animation: pulse 2s infinite;
+}
+
+@media (max-width: 1024px) {
+  .cs-hub-grid { grid-template-columns: 1fr; gap: 20px; }
+  .cs-hub-visual { height: 240px; }
+}
+/* ── "Inside every case study" strip ── */
+.cs-hub-method {
+  padding: 64px 0;
+  background: var(--dark);
+  border-bottom: 1px solid var(--border);
+}
+.cs-hub-method-head { max-width: 620px; margin-bottom: 40px; }
+.cs-hub-method-head .label { margin-bottom: 16px; }
+.cs-hub-method-head p { margin-top: 14px; }
+.cs-hub-method-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.cs-hub-method-item {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: border-color var(--transition), opacity .6s ease, transform .6s ease, translate var(--transition);
+}
+.cs-hub-method-item:hover { border-color: var(--border2); translate: 0 -3px; }
+
+/* ── Partner cards (multi-party builds) ── */
+.cs-partner-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+.cs-partner-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 22px 24px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition);
+}
+.cs-partner-card:hover { border-color: var(--orange); }
+.cs-partner-card-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.cs-partner-card-name {
+  font-family: var(--head);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.cs-partner-card-link {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  transition: color var(--transition);
+}
+.cs-partner-card-link:hover { color: var(--orange); }
+
+@media (max-width: 768px) {
+  .cs-partner-row { grid-template-columns: 1fr; }
+  .cs-wip { padding: 20px; margin-bottom: 28px; }
+}
+
+/* ── In-development notice strip (case study pages) ── */
+.cs-wip {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 22px 26px;
+  margin-bottom: 40px;
+  background: var(--orange-bg);
+  border: 1px solid rgba(232,137,12,.2);
+  border-left: 3px solid var(--orange);
+  border-radius: var(--radius);
+}
+.cs-wip-icon { font-size: 20px; line-height: 1; flex-shrink: 0; }
+.cs-wip-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 8px;
+}
+.cs-wip p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--white);
+  max-width: 620px;
+  margin: 0;
+}
+.cs-hub-method-num {
+  display: block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .2em;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+.cs-hub-method-item h3 {
+  font-family: var(--head);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.cs-hub-method-item p {
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--white-dim);
+}
+@media (max-width: 768px) {
+  .cs-hub-bar { padding: 14px 0; margin-bottom: 28px; }
+  .cs-hub-visual { height: 210px; }
+  .cs-hub-body { padding: 24px; }
+  .cs-hub-title { font-size: 23px; }
+  .cs-hub-emblem { padding: 42px 20px 34px; }
+  .cs-hub-emblem-logo { width: 88px; height: 88px; }
+  .cs-hub-method { padding: 48px 0; }
+  .cs-hub-method-grid { grid-template-columns: 1fr; }
+}
+
 /* ── Breadcrumb ── */
 .cs-breadcrumb {
   display: flex;
@@ -593,5 +1134,12 @@
   .cs-phase-features { grid-template-columns: 1fr; }
   .cs-phase-feature { border-right: none !important; border-bottom: 1px solid var(--border) !important; }
   .cs-phase-feature:last-child { border-bottom: none !important; }
+  .cs-hub-meta { grid-template-columns: 1fr; }
+  .cs-hub-visual { height: 200px; }
+  .cs-hub-emblem { padding: 34px 14px 30px; }
+  .cs-hub-emblem-logo { width: 80px; height: 80px; }
+  .cs-hub-emblem-chips span { font-size: 8px; padding: 4px 8px; }
+  .cs-hub-metric { padding: 12px 10px; }
+  .cs-hub-metric-val { font-size: 20px; }
   .cs-metrics-grid { grid-template-columns: 1fr 1fr; }
 }
