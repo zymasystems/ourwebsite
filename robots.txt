@@ -1,4 +1,11 @@
+# robots.txt - Zyma Systems (https://zyma.co.za)
+# Static site on GitHub Pages: all public pages are crawlable except the
+# post-submission confirmation page, which has no search value.
+
 User-agent: *
 Allow: /
+
+# Form submission "thank you" page (reached only after the contact form posts)
+Disallow: /success.html
 
 Sitemap: https://zyma.co.za/sitemap.xml
