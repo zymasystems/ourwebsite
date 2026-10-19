@@ -406,20 +406,20 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
 .portfolio-bento-grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  align-items: start;
-  gap: 24px;
+  align-items: stretch;
+  gap: 14px;
   margin-top: 32px;
 }
 .portfolio-bento-item {
   grid-column: span 6;
   background: rgba(17,17,17,.92);
   border: 1px solid var(--border);
-  border-radius: 22px;
+  border-radius: 20px;
   overflow: hidden;
   transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 .portfolio-bento-item:hover {
-  transform: translateY(-3px);
+  background: rgba(24,24,24,.98);
   border-color: var(--border2);
 }
 .portfolio-bento-item:nth-child(3n + 1) { grid-column: span 7; }
@@ -450,16 +450,23 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
 .portfolio-bento-media {
   position: relative;
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 10px;
   background: var(--dark);
   border: 1px solid rgba(255,255,255,.05);
+  aspect-ratio: 16 / 9;
 }
 .portfolio-bento-media img {
+  position: absolute;
+  inset: 0;
+  box-sizing: border-box;
   width: 100%;
-  height: 220px;
+  height: 100%;
   object-fit: cover;
   display: block;
   transition: transform .45s ease;
+}
+.portfolio-bento-media--contain img {
+  object-fit: contain;
 }
 .portfolio-bento-item:hover .portfolio-bento-media img {
   transform: scale(1.04);
