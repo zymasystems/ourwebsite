@@ -2575,6 +2575,7 @@ h1, h2, h3, h4 { font-family: var(--head); line-height: 1.05; }
   min-width: 0;
   position: static;
 }
+#contact-form .form-actions > button[hidden] { display: none; }
 .contact-info-left .label { margin-bottom: 24px; }
 .contact-info-left .display { font-size: clamp(44px, 5vw, 72px); line-height: 0.95; margin-bottom: 24px; }
 .contact-info-left .body-text { max-width: 520px; margin: 0 0 36px; }
