@@ -161,14 +161,78 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ── Contact form ── */
   const form = document.getElementById('contact-form');
   if (form) {
+    const steps = Array.from(form.querySelectorAll('.form-step'));
+    const nextBtn = document.getElementById('form-next');
+    const backBtn = document.getElementById('form-back');
+    const submitBtn = form.querySelector('.form-submit');
+    const progressBar = document.getElementById('form-progress-bar');
+    const progressLabel = document.getElementById('form-progress-label');
+    let currentStep = 1;
+
+    function showStep(step) {
+      currentStep = step;
+      steps.forEach((item) => item.classList.toggle('active', Number(item.dataset.step) === step));
+      backBtn.hidden = step === 1;
+      nextBtn.hidden = step === steps.length;
+      submitBtn.hidden = step !== steps.length;
+      progressBar.style.width = `${(step / steps.length) * 100}%`;
+      progressLabel.textContent = `Step ${step} of ${steps.length}`;
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function validateStep(step) {
+      const fields = steps.find((item) => Number(item.dataset.step) === step).querySelectorAll('input, select, textarea');
+      if (step === 2) {
+        const selectedServices = form.querySelectorAll('input[name="service"]:checked');
+        if (selectedServices.length === 0) {
+          form.querySelector('.service-choice-grid').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          alert('Please select at least one service.');
+          return false;
+        }
+      }
+      return Array.from(fields).every((field) => {
+        if (!field.checkValidity()) {
+          field.reportValidity();
+          return false;
+        }
+        return true;
+      });
+    }
+
+    nextBtn.addEventListener('click', () => {
+      if (validateStep(currentStep) && currentStep < steps.length) showStep(currentStep + 1);
+    });
+    backBtn.addEventListener('click', () => {
+      if (currentStep > 1) showStep(currentStep - 1);
+    });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const btn = document.querySelector('.form-submit');
+      if (!validateStep(currentStep) || !form.checkValidity()) return;
+      const btn = submitBtn;
+      const selectedServices = Array.from(form.querySelectorAll('input[name="service"]:checked'))
+        .map((checkbox) => checkbox.value);
+      const requirements = document.getElementById('requirements').value;
+      const currentProcess = document.getElementById('current-process').value;
+      const timeline = document.getElementById('timeline').value;
+      const teamSize = document.getElementById('team-size').value;
+      const additionalNotes = document.getElementById('notes').value;
+      const notes = [
+        `Interested services: ${selectedServices.join(', ') || 'Not specified'}`,
+        `Goal / desired outcome: ${requirements}`,
+        `Current process: ${currentProcess}`,
+        `Preferred timeline: ${timeline}`,
+        `Expected users: ${teamSize}`,
+        `Additional notes: ${additionalNotes || 'None'}`
+      ].join('\n');
       const data = {
         fullName: document.getElementById('full-name').value,
         businessName: document.getElementById('business-name').value,
         email: document.getElementById('email').value,
-        requirements: document.getElementById('requirements').value
+        phone: document.getElementById('phone').value,
+        service: selectedServices.join(', '),
+        requirements,
+        notes
       };
       btn.innerHTML = 'Sending...';
       btn.disabled = true;

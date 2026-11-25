@@ -131,27 +131,152 @@
         <div class="contact-form-card reveal reveal-delay-1">
           <h2>Request a Free Consultation</h2>
           <form id="contact-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label class="form-label" for="full-name">Full Name</label>
-                <input class="form-input" id="full-name" type="text" placeholder="khutjo mamabolo" required />
+            <div class="form-progress" aria-label="Form progress">
+              <div class="form-progress-track"><div class="form-progress-bar" id="form-progress-bar"></div></div>
+              <span id="form-progress-label">Step 1 of 4</span>
+            </div>
+
+            <div class="form-step active" data-step="1">
+              <div class="form-step-heading">
+                <span class="form-step-number">01</span>
+                <div>
+                  <h3>About You</h3>
+                  <p>Tell us who we will be speaking with.</p>
+                </div>
               </div>
-              <div class="form-group">
-                <label class="form-label" for="business-name">Business Name</label>
-                <input class="form-input" id="business-name" type="text" placeholder="Zyma Systems (Pty) Ltd" required />
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="full-name">Full Name</label>
+                  <input class="form-input" id="full-name" type="text" name="fullName" placeholder="Khutjo Mamabolo" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="business-name">Business or Organisation</label>
+                  <input class="form-input" id="business-name" type="text" name="businessName" placeholder="Zyma Systems (Pty) Ltd" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address</label>
+                  <input class="form-input" id="email" type="email" name="email" placeholder="hello@company.co.za" required />
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone / WhatsApp</label>
+                  <input class="form-input" id="phone" type="tel" name="phone" placeholder="+27 50 040 0755" required />
+                </div>
               </div>
             </div>
-            <div class="form-group full">
-              <label class="form-label" for="email">Email Address</label>
-              <input class="form-input" id="email" type="email" placeholder="khutjomamabolo@zyma.co.za" required />
+
+            <div class="form-step" data-step="2">
+              <div class="form-step-heading">
+                <span class="form-step-number">02</span>
+                <div>
+                  <h3>Choose Your Services</h3>
+                  <p>Select one or more Zyma services you are interested in.</p>
+                </div>
+              </div>
+              <div class="service-choice-grid" role="group" aria-label="Interested services">
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Custom Software Development" />
+                  <span>Custom Software<br>Development</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Workflow Automation" />
+                  <span>Workflow<br>Automation</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Internal Systems" />
+                  <span>Internal<br>Systems</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="System Integration" />
+                  <span>System<br>Integration</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Web Development" />
+                  <span>Web<br>Development</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Zoho Workplace Implementation" />
+                  <span>Zoho Workplace<br>Implementation</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Zoho Mail Deployment &amp; Migration" />
+                  <span>Zoho Mail<br>Deployment &amp; Migration</span>
+                </label>
+                <label class="service-choice">
+                  <input type="checkbox" name="service" value="Other / Not Sure" />
+                  <span>Other /<br>Not Sure</span>
+                </label>
+              </div>
             </div>
-            <div class="form-group full">
-              <label class="form-label" for="requirements">Project Requirements</label>
-              <textarea class="form-textarea" id="requirements" placeholder="Briefly describe your automation needs..." required></textarea>
+
+            <div class="form-step" data-step="3">
+              <div class="form-step-heading">
+                <span class="form-step-number">03</span>
+                <div>
+                  <h3>Project Context</h3>
+                  <p>Help us understand the opportunity and current challenge.</p>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="requirements">What would you like the solution to achieve?</label>
+                <textarea class="form-textarea" id="requirements" name="requirements" placeholder="Describe the outcome, process or problem you want to solve..." required></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="current-process">How do you manage this process today?</label>
+                <textarea class="form-textarea form-textarea-short" id="current-process" name="currentProcess" placeholder="For example: spreadsheets, WhatsApp, email, paper forms or another system..." required></textarea>
+              </div>
             </div>
-            <button type="submit" class="btn btn-primary form-submit">
-              Request a Free Consultation <span class="btn-arrow">→</span>
-            </button>
+
+            <div class="form-step" data-step="4">
+              <div class="form-step-heading">
+                <span class="form-step-number">04</span>
+                <div>
+                  <h3>Timeline &amp; Notes</h3>
+                  <p>A few final details so we can prepare for the call.</p>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="timeline">Preferred Timeline</label>
+                  <select class="form-input" id="timeline" name="timeline" required>
+                    <option value="" disabled selected>Select a timeline</option>
+                    <option>As soon as possible</option>
+                    <option>Within 1 month</option>
+                    <option>Within 3 months</option>
+                    <option>Within 6 months</option>
+                    <option>Just exploring</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="team-size">Who will use the solution?</label>
+                  <select class="form-input" id="team-size" name="teamSize" required>
+                    <option value="" disabled selected>Select team size</option>
+                    <option>Just me</option>
+                    <option>2–5 people</option>
+                    <option>6–20 people</option>
+                    <option>21–100 people</option>
+                    <option>More than 100 people</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="notes">Additional Notes</label>
+                <textarea class="form-textarea form-textarea-short" id="notes" name="notes" placeholder="Budget range, integrations, security needs, deadlines or anything else we should know..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline form-back" id="form-back" hidden>
+                <span class="btn-arrow btn-arrow-back">←</span> Back
+              </button>
+              <button type="button" class="btn btn-primary form-next" id="form-next">
+                Continue <span class="btn-arrow">→</span>
+              </button>
+              <button type="submit" class="btn btn-primary form-submit" hidden>
+                Request a Free Consultation <span class="btn-arrow">→</span>
+              </button>
+            </div>
           </form>
         </div>
         <div class="contact-map reveal reveal-delay-3">
